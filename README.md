@@ -109,7 +109,7 @@ FROM dept_10;
 ```
 
 ### 运行结果
- ![](
+ ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/3.3.png)
 
 ## 3.4 将 MILLER 的 comm 增加 100； 然后，找到 comm 比 MILLER 低的人；
 ```sql
@@ -134,8 +134,8 @@ where not comm=0;
 
 ```
 ### 运行结果
- ![](
-
+ ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/%E6%80%BB%E4%BA%BA%E6%95%B0.png)
+ ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/%E5%B9%B3%E5%9D%87%E5%B7%A5%E8%B5%84.png)
 
 
 
@@ -146,7 +146,7 @@ FROM dept_100  INNER JOIN dept_10
 ON dept_100.deptno=dept_10.deptno;
 ```
 ### 运行结果
- ![](
+ ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/3.6.png)
 
 ## 3.7 建立一个视图：每个人的empno, ename, job 和 loc。简述为什么要建立本视图。
 ```sql
@@ -156,22 +156,21 @@ FROM dept_100  INNER JOIN dept_10
 ON dept_100.deptno=dept_10.deptno;
 ```
 ### 运行结果
- ![](
+ ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/3.7.png)
 
 ## 3.8 为表2增加一个约束：deptno字段需要在表1中存在；这称做什么完整性？
 ```sql
 alter dept_10
 constraint dept_10_fk2 foreign key(deptno) references dept_100(depno);
 ```
-### 运行结果
- ![](
+这叫做参照完整性。
 
 ## 3.9 为表2增加一个索引：ename 字段。简述为什么要在 ename 字段建立索引
 ```sql
 create index indexname on dept_10(ename);
 ```
 ### 运行结果
- ![](
+ ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/3.9.png)
 
 ## 3.10 将表2的 sal 字段改名为 salary
 ```sql
@@ -179,7 +178,7 @@ alter table dept_10
 change sal salary INT;
 ```
 ### 运行结果
- ![](
+ ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/3.10.png)
 
 ## 3.11 撰写一个函数 get_deptno_from_empno，输入 empno，输出对应的 deptno。 简述函数和存储过程有什么不同。
 ```sql
@@ -191,28 +190,28 @@ return(select deptno from dept_10 where dept_10.empno=empno);
 end$$
 ```
 ### 运行结果
- ![](
+ ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/3.11.png)
 
 ## 4 建立一个新用户，账号为自己的姓名拼音，密码为自己的学号；
 ```sql
 CREATE USER 'Tongyan'@'localhost' IDENTIFIED BY '17061902';
 ```
 ### 运行结果
- ![](
+ ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/4.png)
 
 ## 4.1 将表1的SELECT, INSERT, UPDATE(ename)权限赋给该账号。
 ```sql
 grant SELECT, INSERT, UPDATE(ename) on dept_100.* to test@localhost identified by '1234';
 ```
 ### 运行结果
- ![](
+ ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/4.1.png)
 
 ## 4.2 显示该账号权限
 ```sql
 show grants;
 ```
 ### 运行结果
- ![](
+ ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/4.2.png)
 
 ## 4.3 `with grant option` 是什么意思。
 ### 答：WITH GRANT OPTION 这个选项表示该用户可以将自己拥有的权限授权给别人。
