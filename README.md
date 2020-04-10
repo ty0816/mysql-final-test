@@ -55,7 +55,7 @@ SELECT * FROM dept_100;
 表2：其中empno字段为主键
 ```sql
 CREATE TABLE dept_10(
-empno INT, 
+empno INT PRIMARY KEY, 
 ename VARCHAR(40),   
 job VARCHAR(40),    
 MGR INT,  
@@ -194,17 +194,31 @@ end$$
  ![](
 
 ## 4 建立一个新用户，账号为自己的姓名拼音，密码为自己的学号；
+```sql
+CREATE USER 'Tongyan'@'localhost' IDENTIFIED BY '17061902';
+```
+### 运行结果
 
 
 ## 4.1 将表1的SELECT, INSERT, UPDATE(ename)权限赋给该账号。
+```sql
+grant SELECT, INSERT, UPDATE(ename) on dept_100.* to test@localhost identified by '1234';
+```
+### 运行结果
+
 
 ## 4.2 显示该账号权限
+```sql
+show grants;
+```
+### 运行结果
+
 
 ## 4.3 `with grant option` 是什么意思。
 ### 答：WITH GRANT OPTION 这个选项表示该用户可以将自己拥有的权限授权给别人。
 
 ## 5 表 1 和表 2 这样设计是否符合第一范式，是否符合第二范式，为什么？
-### 答：
+### 答：符合第一范式，因为列的区分很明显已经不能够再分成其他几列；但不符合第二范式，因为第二范式的规定一是表必须有一个主键；二是没有包含在主键中的列必须完全依赖于主键，而不能只依赖于主键的一部分，而该两表有主键，但没有完全依赖主键。
 
 ## 6 画出表 1 和表 2 所对应的 E-R 图
 ### 答：
