@@ -109,7 +109,7 @@ FROM dept_10;
 ```
 
 ### 运行结果
-
+ ![](
 
 ## 3.4 将 MILLER 的 comm 增加 100； 然后，找到 comm 比 MILLER 低的人；
 ```sql
@@ -198,21 +198,21 @@ end$$
 CREATE USER 'Tongyan'@'localhost' IDENTIFIED BY '17061902';
 ```
 ### 运行结果
-
+ ![](
 
 ## 4.1 将表1的SELECT, INSERT, UPDATE(ename)权限赋给该账号。
 ```sql
 grant SELECT, INSERT, UPDATE(ename) on dept_100.* to test@localhost identified by '1234';
 ```
 ### 运行结果
-
+ ![](
 
 ## 4.2 显示该账号权限
 ```sql
 show grants;
 ```
 ### 运行结果
-
+ ![](
 
 ## 4.3 `with grant option` 是什么意思。
 ### 答：WITH GRANT OPTION 这个选项表示该用户可以将自己拥有的权限授权给别人。
@@ -236,4 +236,4 @@ show grants;
 ## 8.3 如果隔离级别为 READ-UNCOMMITED, 完成 “MILLER 的 comm 增加 100” 事务操作完成后，可能读到的结果有哪些，原因是什么？
 
 ## 9 有哪些场景不适合用关系型数据库？为什么？
-### 答：图片，文件，二进制数据，短期数据，日志文件，
+### 答：图片，文件，二进制数据，短期数据，日志文件，会使问题更加复杂化，达不到简洁的效果。
