@@ -115,6 +115,12 @@ select*from dept_10 where comm<=(select sal from dept_100 where ename='mitter');
  ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/3.4.png)
 
 ## 3.5 计算每个人的收入(ename, sal + comm)；计算总共有多少人；计算所有人的平均收入。 提示：计算时 NULL 要当做 0 处理； 
+```sql
+select ename,(sal+comm)from dept_10
+WHERE NOT comm=0;
+
+
+
 
 ## 3.6 显示每个人的下属, 没有下属的显示 NULL。本操作使用关系代数中哪几种运算？
 ```sql
@@ -127,13 +133,33 @@ on t3.mgr=t4.empno;
  ![](
 
 ## 3.7 建立一个视图：每个人的empno, ename, job 和 loc。简述为什么要建立本视图。
+```sql
+create view v1
+as select empno,ename,job,loc
+FROM dept_100  INNER JOIN dept_10
+ON dept_100.deptno=dept_10.deptno;
+```
+### 运行结果
 
 ## 3.8 为表2增加一个约束：deptno字段需要在表1中存在；这称做什么完整性？
 
+### 运行结果
 
 ## 3.9 为表2增加一个索引：ename 字段。简述为什么要在 ename 字段建立索引
+```sql
+create index indexname on dept_10(ename);
+```
+
+### 运行结果
+
 
 ## 3.10 将表2的 sal 字段改名为 salary
+```sql
+alter table dept_10
+change sal salary INT;
+```
+### 运行结果
+
 
 ## 3.11 撰写一个函数 get_deptno_from_empno，输入 empno，输出对应的 deptno。 简述函数和存储过程有什么不同。
 
