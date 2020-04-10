@@ -20,6 +20,7 @@
  select now();
  ```
  ### 运行结果
+ ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/%E6%89%93%E5%8D%B0%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4.png)
 
 ### 2 组合打印自己的姓名和学号
 ```sql
@@ -27,7 +28,7 @@ INSERT INTO user VALUES("tongyan+17061902");
 SELECT*FROM user;
 ```
 ### 运行结果
-
+ ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/%E8%BE%93%E5%87%BA%E5%AD%A6%E5%8F%B7%2B%E5%A7%93%E5%90%8D.png)
 
 
 ## 3 建立如下表1和表2，写出建表语句和插入语句。
@@ -48,7 +49,7 @@ INSERT INTO dept_100(deptno,dname,loc)VALUES(10, "ACCOUNTING", "NEW YORK"),
 SELECT * FROM dept_100;
 ```
 #### 运行结果
-
+ ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/3%E9%A2%98%E8%A1%A81.png)
 
 
 表2：其中empno字段为主键
@@ -83,6 +84,7 @@ deptno INT
 SELECT * FROM dept_10;
 ```
 #### 运行结果
+ ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/3%E9%A2%98%E8%A1%A82.png)
 
 ## 3.1 表2 中再插入一条记录：
 ```sql
@@ -90,13 +92,15 @@ INSERT INTO dept_10(empno, ename,    job,    MGR,   Hiredate,    sal,   comm, de
    VALUES (17061902, "Tongyan", "STUDENT", 7782, "2000-03-12", NULL, NULL, 10);
    ```
 #### 运行结果
-
+ ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/3.1%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE.png)
 
 ## 3.2 表中入职时间（Hiredate字段）最短的人。
 ```sql
 select ename,min(hiredate)from dept_10;
 ```
 ### 运行结果
+ ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/3.1.png)
+
 
 ## 3.3 有几种职位（job字段）？在关系代数中，本操作是什么运算？
 
@@ -108,6 +112,7 @@ set comm+comm+100 where ename='mitter';
 select*from dept_10 where comm<=(select sal from dept_100 where ename='mitter');
 ```
 ### 运行结果
+ ![](https://github.com/ty0816/mysql-final-test/blob/master/photo/3.4.png)
 
 ## 3.5 计算每个人的收入(ename, sal + comm)；计算总共有多少人；计算所有人的平均收入。 提示：计算时 NULL 要当做 0 处理； 
 
@@ -118,6 +123,9 @@ from((dept_10 t1 inner join dept_10 t2 on t1.mgr=t2.empno)inner join t3 on ta.mg
 on t3.mgr=t4.empno;
 
 ```
+### 运行结果
+ ![](
+
 ## 3.7 建立一个视图：每个人的empno, ename, job 和 loc。简述为什么要建立本视图。
 
 ## 3.8 为表2增加一个约束：deptno字段需要在表1中存在；这称做什么完整性？
