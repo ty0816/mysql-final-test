@@ -103,6 +103,12 @@ select ename,min(hiredate)from dept_10;
 
 
 ## 3.3 有几种职位（job字段）？在关系代数中，本操作是什么运算？
+```sql
+SELECT DISTINCT job
+FROM dept_10;
+```
+
+### 运行结果
 
 
 ## 3.4 将 MILLER 的 comm 增加 100； 然后，找到 comm 比 MILLER 低的人；
@@ -119,15 +125,25 @@ select*from dept_10 where comm<=(select sal from dept_100 where ename='mitter');
 select ename,(sal+comm)from dept_10
 WHERE NOT comm=0;
 
+SELECT COUNT(*)  number
+FROM dept_10;
+
+select avg(salary+comm)average
+from dept_10
+where not comm=0;
+
+```
+### 运行结果
+
+
 
 
 
 ## 3.6 显示每个人的下属, 没有下属的显示 NULL。本操作使用关系代数中哪几种运算？
 ```sql
-select*
-from((dept_10 t1 inner join dept_10 t2 on t1.mgr=t2.empno)inner join t3 on ta.mgr=t3.empno)inner join t4
-on t3.mgr=t4.empno;
-
+SELECT empno, ename,job,dname,loc
+FROM dept_100  INNER JOIN dept_10
+ON dept_100.deptno=dept_10.deptno;
 ```
 ### 运行结果
  ![](
@@ -142,14 +158,16 @@ ON dept_100.deptno=dept_10.deptno;
 ### 运行结果
 
 ## 3.8 为表2增加一个约束：deptno字段需要在表1中存在；这称做什么完整性？
-
+```sql
+alter dept_10
+constraint dept_10_fk2 foreign key(deptno) references dept_100(depno);
+```
 ### 运行结果
 
 ## 3.9 为表2增加一个索引：ename 字段。简述为什么要在 ename 字段建立索引
 ```sql
 create index indexname on dept_10(ename);
 ```
-
 ### 运行结果
 
 
