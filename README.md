@@ -180,8 +180,19 @@ change sal salary INT;
 
 
 ## 3.11 撰写一个函数 get_deptno_from_empno，输入 empno，输出对应的 deptno。 简述函数和存储过程有什么不同。
+```sql
+delimiter $$
+create function get_deptno_from_empno(empno int)
+returns int
+begin
+return(select deptno from dept_10 where dept_10.empno=empno);
+end$$
+```
+### 运行结果
+
 
 ## 4 建立一个新用户，账号为自己的姓名拼音，密码为自己的学号；
+
 
 ## 4.1 将表1的SELECT, INSERT, UPDATE(ename)权限赋给该账号。
 
